@@ -1,0 +1,5 @@
+#!/bin/sh
+
+TAG=$(git rev-parse --abbrev-ref HEAD | grep -oP '(?<=-)([a-zA-Z]{3,4}-\d*)')
+
+echo -n "[$TAG]"' '|cat - "$1" > /tmp/out && mv /tmp/out "$1"
