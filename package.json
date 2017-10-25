@@ -4,6 +4,7 @@
   "description": "examples of automation, to accompany https://github.com/Pondidum/presentations/tree/master/automate",
   "author": "Andy Dote",
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "gulp-util": "^3.0.8"
   }
 }
