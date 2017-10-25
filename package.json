@@ -1,0 +1,9 @@
+{
+  "name": "automation-examples",
+  "version": "1.0.0",
+  "description": "examples of automation, to accompany https://github.com/Pondidum/presentations/tree/master/automate",
+  "author": "Andy Dote",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
