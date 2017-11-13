@@ -1,5 +1,13 @@
 #!/bin/sh
 
+BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
 TAG=$(git rev-parse --abbrev-ref HEAD | grep -oP '(?<=-)([a-zA-Z]{3,4}-\d*)')
+TAG_IN_MESSAGE=$(grep -c "\[$BRANCH_NAME\]" $1)
+REBASING=$(echo $BRANCH_NAME | grep 'rebasing')
+
+echo "branchName: $BRANCH_NAME"
+echo "tag: $TAG"
+echo "tag exists: $TAG_IN_MESSAGE"
+echo "is rebasing: $REBASING"
 
 echo -n "[$TAG]"' '|cat - "$1" > /tmp/out && mv /tmp/out "$1"
