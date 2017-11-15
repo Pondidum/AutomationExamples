@@ -2,13 +2,12 @@
 
 BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
 TAG=$(git rev-parse --abbrev-ref HEAD | grep -oP '(?<=-)([a-zA-Z]{3,4}-\d*)')
-TAG_IN_MESSAGE=$(grep -c "\[$BRANCH_NAME\]" $1)
+TAG_IN_MESSAGE=$(grep -c "\[$TAG\]" $1)
 REBASING=$(echo $BRANCH_NAME | grep 'rebasing')
 
 if [ -n "$TAG" ] && ! [[ $TAG_IN_MESSAGE -ge 1 ]] && [ -z "$REBASING" ] ; then
     echo -n "[$TAG]"' '|cat - "$1" > /tmp/out && mv /tmp/out "$1"
 else
-
     if [ -z "$TAG" ]; then
         echo 'prepare-commit-msg: no Jira tag found'
     fi
